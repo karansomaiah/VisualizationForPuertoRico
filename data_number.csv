@@ -1,0 +1,102 @@
+Date,Resource,Location,Value,Unit,Source
+9/29/2017,People in shelters,Puerto Rico,11105,number,Vivienda
+9/29/2017,Hospitals,Puerto Rico,34,number,ASES
+10/1/2017,Cell antennas,Puerto Rico,300,number,FCC
+10/2/2017,Cell towers,Puerto Rico,270,number,JRTC
+10/2/2017,People in shelters,Puerto Rico,8867,number,Vivienda
+10/2/2017,Hospitals,Puerto Rico,51,number,Departamento de Salud Federal y Local
+10/2/2017,Hospitals with electricity,Puerto Rico,10,number,Departamento de Salud Federal y Local
+10/2/2017,Cell antennas,Puerto Rico,312,number,FCC
+10/3/2017,Cell towers,Puerto Rico,365,number,JRTC
+10/3/2017,People in shelters,Puerto Rico,9343,number,Vivienda
+10/3/2017,Hospitals,Puerto Rico,51,number,Departamento de Salud Federal y Local
+10/3/2017,Hospitals with electricity,Puerto Rico,17,number,Departamento de Salud Federal y Local
+10/4/2017,People in shelters,Puerto Rico,8802,number,Vivienda
+10/5/2017,Cell antennas,Puerto Rico,362,number,FCC
+10/5/2017,Cell towers,Puerto Rico,423,number,JRTC
+10/5/2017,People in shelters,Puerto Rico,8585,number,Vivienda
+10/5/2017,Hospitals,Puerto Rico,64,number,Departamento de Salud Federal y Local
+10/5/2017,Hospitals with electricity,Puerto Rico,25,number,Departamento de Salud Federal y Local
+10/6/2017,Cell antennas,Puerto Rico,406,number,FCC
+10/6/2017,Cell towers,Puerto Rico,390,number,JRTC
+10/6/2017,People in shelters,Puerto Rico,8349,number,Vivienda
+10/6/2017,Hospitals,Puerto Rico,68,number,Departamento de Salud Federal y Local
+10/6/2017,Hospitals with electricity,Puerto Rico,25,number,Departamento de Salud Federal y Local
+10/7/2017,Cell antennas,Puerto Rico,422,number,FCC
+10/7/2017,Cell towers,Puerto Rico,390,number,JRTC
+10/7/2017,People in shelters,Puerto Rico,7442,number,Vivienda
+10/7/2017,Hospitals,Puerto Rico,66,number,Departamento de Salud Federal y Local
+10/7/2017,Hospitals with electricity,Puerto Rico,25,number,Departamento de Salud Federal y Local
+10/8/2017,Cell antennas,Puerto Rico,505,number,FCC
+10/8/2017,Cell towers,Puerto Rico,465,number,JRTC
+10/8/2017,People in shelters,Puerto Rico,6908,number,Vivienda
+10/8/2017,Hospitals,Puerto Rico,66,number,Departamento de Salud Federal y Local
+10/8/2017,Hospitals with electricity,Puerto Rico,25,number,Departamento de Salud Federal y Local
+10/9/2017,Cell towers,Puerto Rico,459,number,JRTC
+10/9/2017,People in shelters,Puerto Rico,6452,number,Vivienda
+10/9/2017,Hospitals,Puerto Rico,67,number,Departamento de Salud Federal y Local
+10/9/2017,Hospitals with electricity,Puerto Rico,25,number,Departamento de Salud Federal y Local
+10/10/2017,Cell towers,Puerto Rico,531,number,JRTC
+10/10/2017,People in shelters,Puerto Rico,6067,number,Vivienda
+10/10/2017,Hospitals,Puerto Rico,70,number,Departamento de Salud Federal y Local
+10/10/2017,Hospitals with electricity,Puerto Rico,25,number,Departamento de Salud Federal y Local
+10/11/2017,Cell towers,Puerto Rico,544,number,JRTC
+10/11/2017,People in shelters,Puerto Rico,5742,number,Vivienda
+10/11/2017,Hospitals,Puerto Rico,72,number,Departamento de Salud Federal y Local
+10/11/2017,Hospitals with electricity,Puerto Rico,43,number,Departamento de Salud Federal y Local
+10/12/2017,Cell towers,Puerto Rico,601,number,JRTC
+10/12/2017,People in shelters,Puerto Rico,5602,number,Vivienda
+10/12/2017,Hospitals,Puerto Rico,72,number,Departamento de Salud Federal y Local
+10/12/2017,Hospitals with electricity,Puerto Rico,43,number,Departamento de Salud Federal y Local
+10/13/2017,Cell towers,Puerto Rico,586,number,JRTC
+10/13/2017,People in shelters,Puerto Rico,5414,number,Vivienda
+10/13/2017,Hospitals,Puerto Rico,72,number,Departamento de Salud Federal y Local
+10/13/2017,Hospitals with electricity,Puerto Rico,44,number,Departamento de Salud Federal y Local
+10/14/2017,Cell antennas,Puerto Rico,647,number,FCC
+10/14/2017,Cell towers,Puerto Rico,652,number,JRTC
+10/14/2017,People in shelters,Puerto Rico,5261,number,Vivienda
+10/15/2017,Cell antennas,Puerto Rico,672,number,FCC
+10/15/2017,Cell towers,Puerto Rico,690,number,JRTC
+10/15/2017,People in shelters,Puerto Rico,5141,number,Vivienda
+10/15/2017,Hospitals,Puerto Rico,69,number,Departamento de Salud Federal y Local
+10/15/2017,Hospitals with electricity,Puerto Rico,44,number,Departamento de Salud Federal y Local
+10/16/2017,People in shelters,Puerto Rico,5037,number,Vivienda
+10/16/2017,Hospitals,Puerto Rico,70,number,Departamento de Salud Federal y Local
+10/16/2017,Hospitals with electricity,Puerto Rico,45,number,Departamento de Salud Federal y Local
+10/17/2017,Cell towers,Puerto Rico,691,number,JRTC
+10/17/2017,People in shelters,Puerto Rico,4842,number,Vivienda
+10/17/2017,Hospitals,Puerto Rico,70,number,Departamento de Salud Federal y Local
+10/17/2017,Hospitals with electricity,Puerto Rico,45,number,Departamento de Salud Federal y Local
+10/18/2017,Cell towers,Puerto Rico,744,number,JRTC
+10/18/2017,People in shelters,Puerto Rico,4702,number,Vivienda
+10/18/2017,Hospitals,Puerto Rico,70,number,Departamento de Salud Federal y Local
+10/18/2017,Hospitals with electricity,Puerto Rico,45,number,Departamento de Salud Federal y Local
+10/19/2017,Cell towers,Puerto Rico,754,number,JRTC
+10/19/2017,People in shelters,Puerto Rico,4374,number,Vivienda
+10/19/2017,Hospitals,Puerto Rico,64,number,Departamento de Salud Federal y Local
+10/19/2017,Hospitals with electricity,Puerto Rico,45,number,Departamento de Salud Federal y Local
+10/20/2017,Cell antennas,Puerto Rico,842,number,FCC
+10/20/2017,Cell towers,Puerto Rico,795,number,JRTC
+10/20/2017,People in shelters,Puerto Rico,4246,number,Vivienda
+10/20/2017,Hospitals,Puerto Rico,66,number,Departamento de Salud Federal y Local
+10/20/2017,Hospitals with electricity,Puerto Rico,45,number,Departamento de Salud Federal y Local
+10/21/2017,Cell antennas,Puerto Rico,842,number,FCC
+10/21/2017,Cell towers,Puerto Rico,839,number,JRTC
+10/21/2017,People in shelters,Puerto Rico,4154,number,Vivienda
+10/21/2017,Hospitals,Puerto Rico,65,number,Departamento de Salud Federal y Local
+10/21/2017,Hospitals with electricity,Puerto Rico,45,number,Departamento de Salud Federal y Local
+10/22/2017,Cell antennas,Puerto Rico,863,number,FCC
+10/22/2017,Cell towers,Puerto Rico,864,number,JRTC
+10/22/2017,People in shelters,Puerto Rico,4154,number,Vivienda
+10/22/2017,Hospitals,Puerto Rico,65,number,Departamento de Salud Federal y Local
+10/22/2017,Hospitals with electricity,Puerto Rico,49,number,Departamento de Salud Federal y Local
+10/23/2017,Cell antennas,Puerto Rico,884,number,FCC
+10/23/2017,Cell towers,Puerto Rico,859,number,JRTC
+10/23/2017,People in shelters,Puerto Rico,3966,number,Vivienda
+10/23/2017,Hospitals,Puerto Rico,65,number,Departamento de Salud Federal y Local
+10/23/2017,Hospitals with electricity,Puerto Rico,49,number,Departamento de Salud Federal y Local
+10/24/2017,Cell antennas,Puerto Rico,898,number,FCC
+10/24/2017,Cell towers,Puerto Rico,911,number,JRTC
+10/24/2017,People in shelters,Puerto Rico,3897,number,Vivienda
+10/24/2017,Hospitals,Puerto Rico,65,number,Departamento de Salud Federal y Local
+10/24/2017,Hospitals with electricity,Puerto Rico,49,number,Departamento de Salud Federal y Local
