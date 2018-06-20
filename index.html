@@ -1,219 +1,156 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style> /* set the CSS */
+<style> 
 
-body { font: 12px Arial;}
-
-path { 
-    stroke: steelblue;
-    stroke-width: 2;
-    fill: none;
+.line {
+  fill: none;
+  stroke: yellowgreen;
+  stroke-width: 2px;
 }
 
-.axis path,
-.axis line {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1;
-    shape-rendering: crispEdges;
-}
+.legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;}
 
 </style>
 <body>
 
 <!-- load the d3.js library -->    
-<script src="d3.v3.min.js"></script>
-
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
 <script>
+// set the dimensions and margins of the graph
+var margin = {top: 20, right: 100, bottom: 30, left: 50},
+    width = 760 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
-// Set the dimensions of the canvas / graph
-var margin = {top: 30, right: 10, bottom: 30, left: 75},
-    width = 400 - margin.left - margin.right,
-    height = 220 - margin.top - margin.bottom;
+// parse the date / time
+var parseTime = d3.timeParse("%d-%b-%y");
 
-// Parse the Date / time
-var parseDate = d3.time.format("%Y-%m-%d").parse;
+// set the ranges
+var x = d3.scaleTime().range([0, width]);
+var y = d3.scaleLinear().range([height, 0]);
 
-// Set the ranges
-var x = d3.time.scale().range([0, width]);
-var y = d3.scale.linear().range([height, 0]);
-
-// Define the axes
-var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom").ticks(5);
-
-var yAxis = d3.svg.axis().scale(y)
-    .orient("left").ticks(5);
-
-// Define the line
-var valueline = d3.svg.line()
+// define the line
+var valueline = d3.line()
     .x(function(d) { return x(d.Date); })
-    .y(function(d) { return y(d.Value); });
+    .y(function(d) { return y(d.Value); }).curve(d3.curveBundle.beta(0.75));
+
+// append the svg obgect to the body of the page
+// appends a 'group' element to 'svg'
+// moves the 'group' element to the top left margin
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+var optdata = ["Hospitals", "Hospitals with electricity", "Cell antennas", "Cell towers","Clients with electricity",
+    "Electricity", "People in shelters", "Telecomunications", "Water"];
+
+var select = d3.select('body')
+  .append('select')
+  	.attr('class','select')
+    .attr("align","bottom")
+    .on('change',yolo)
+
+var options = select
+  .selectAll('option')
+	.data(optdata).enter()
+	.append('option')
+	.text(function (d) { return d; });
+
+d3.csv("StatusPR.csv", function(error, data) {
+  if (error) throw error;
+  // format the data
+  data = data.filter(function(d)
+	{
+		if(d['Resource'] == "Hospitals"){
+			return d;
+		}
+	})
+
+    var len = data.length;
+    // format the data
+    data.forEach(function(d){
+        d.Year = +d.Year;
+        d.Month = d.Month;
+        d.Day = +d.Day;
+        d.Date = parseTime(d.Date);
+        d.Resource = d.Resource;
+        d.Location = d.Location;
+        d.Value = +d.Value;
+        d.Unit = d.Unit;
+        d.Source = d.Source;
+  });
+
+  
+  // Scale the range of the data
+  x.domain(d3.extent(data, function(d) { return d.Date; }));
+  y.domain([0, d3.max(data, function(d) { return d.Value; })]);
+
+  // Add the valueline path.
+  svg.append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", valueline);
+
+  // Add the X Axis
+  svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .attr("class", "x axis")
+      .call(d3.axisBottom(x));
+
+  // Add the Y Axis
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(d3.axisLeft(y));
     
-// Adds the svg canvas
-var chart1 = d3.select("body")
-    .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-        .attr("transform", 
-              "translate(" + margin.left + "," + margin.top + ")");
+});
 
-// Get the data
-d3.csv("data_number.csv", function(error, data) {
-	
-	data = data.filter(function(d)
+function yolo(){
+    d3.csv("StatusPR.csv", function(error, data) {
+  if (error) throw error;
+  value = d3.select('select').property('value')
+  // format the data
+  data = data.filter(function(d)
 	{
-		if(d['Resource'] == "Hospitals with electricity"){
+		if(d['Resource'] == value){
 			return d;
 		}
 	})
-	
-	data.forEach(function(d) {
-        d.Date = parseDate(d.Date);
-		d.Resource = +d.Resource;
-		d.Location = +d.Location;
+    
+    data.forEach(function(d){
+        d.Year = +d.Year;
+        d.Month = d.Month;
+        d.Day = +d.Day;
+        d.Date = parseTime(d.Date);
+        d.Resource = d.Resource;
+        d.Location = d.Location;
         d.Value = +d.Value;
-		d.Unit = +d.Unit;
-		d.Source = +d.Source;
-    });
-	
-
-    // Scale the range of the data
+        d.Unit = d.Unit;
+        d.Source = d.Source;
+  });
+    
     x.domain(d3.extent(data, function(d) { return d.Date; }));
     y.domain([0, d3.max(data, function(d) { return d.Value; })]);
 
-    // Add the valueline path.
-    chart1.append("path")
-		//.data(data)
-        .attr("class", "line")
-        .attr("d", valueline(data));
+    var svg = d3.select("body").transition();
 
-    // Add the scatterplot
-    chart1.selectAll("dot")
-        .data(data)
-      .enter().append("circle")
-        .attr("r", 3.5)
-        .attr("cx", function(d) { return x(d.Date); })
-        .attr("cy", function(d) { return y(d.Value); });
-
-    // Add the X Axis
-    chart1.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
-
-    // Add the Y Axis
-    chart1.append("g")
-        .attr("class", "y axis")
-        .call(yAxis);
-		
-	chart1.append("text")
-            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate("+ (-75/2) +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
-            .text("Value");
-
-    chart1.append("text")
-            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate("+ (width/2) +","+(height-(12/3))+")")  // centre below axis
-            .text("Date");
-			
-	chart1.append("text")
-        .attr("x", (width / 2))             
-        .attr("y", 0 - (margin.top / 2))
-        .attr("text-anchor", "middle")  
-        .style("font-size", "16px") 
-        .style("text-decoration", "underline")
-		.style("font-weight", "bold")
-        .text("Trend for 'Hospitals with Electricity'");
-
+// Make the changes
+        svg.select(".line")   // change the line
+            .duration(750)
+            .attr("d", valueline(data));
+        svg.select(".x.axis") // change the x axis
+            .duration(750)
+            .call(x);
+        svg.select(".y.axis") // change the y axis
+            .duration(750)
+            .call(y);
+    
 });
+}
 
-var block = d3.select("body")
-    .append("svg")
-        .attr("width", margin.left + margin.right)
-        .attr("height", margin.top + margin.bottom)
-    .append("g")
-        .attr("transform", 
-              "translate(" + margin.left + "," + margin.top + ")");
-
-var chart2 = d3.select("body")
-    .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-        .attr("transform", 
-              "translate(" + margin.left + "," + margin.top + ")");
-
-// Get the data
-d3.csv("data_number.csv", function(error, data) {
-	
-	data = data.filter(function(d)
-	{
-		if(d['Resource'] == "People in shelters"){
-			return d;
-		}
-	})
-	
-	data.forEach(function(d) {
-        d.Date = parseDate(d.Date);
-		d.Resource = +d.Resource;
-		d.Location = +d.Location;
-        d.Value = +d.Value;
-		d.Unit = +d.Unit;
-		d.Source = +d.Source;
-    });
-	
-
-    // Scale the range of the data
-    x.domain(d3.extent(data, function(d) { return d.Date; }));
-    y.domain([0, d3.max(data, function(d) { return d.Value; })]);
-
-    // Add the valueline path.
-    chart2.append("path")
-		//.data(data)
-        .attr("class", "line")
-        .attr("d", valueline(data));
-
-    // Add the scatterplot
-    chart2.selectAll("dot")
-        .data(data)
-      .enter().append("circle")
-        .attr("r", 3.5)
-        .attr("cx", function(d) { return x(d.Date); })
-        .attr("cy", function(d) { return y(d.Value); });
-
-    // Add the X Axis
-    chart2.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
-
-    // Add the Y Axis
-    chart2.append("g")
-        .attr("class", "y axis")
-        .call(yAxis);
-	
-	chart2.append("text")
-            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate("+ (-95/2) +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
-            .text("Value");
-
-    chart2.append("text")
-            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate("+ (width/2) +","+(height-(12/3))+")")  // centre below axis
-            .text("Date");
-	
-	chart2.append("text")
-        .attr("x", (width / 2))             
-        .attr("y", 0 - (margin.top / 2))
-        .attr("text-anchor", "middle")  
-        .style("font-size", "16px") 
-        .style("text-decoration", "underline")
-		.style("font-weight", "bold")
-        .text("Trend for 'People in Shelters'");
-
-
-});
 </script>
 </body>
