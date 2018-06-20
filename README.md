@@ -7,4 +7,4 @@ These charts are a simple visualization to track progress of different resources
 The data tracks the progress of the wonderful country after being hit by serious hurricanes.
 
 You can also view the visualization
-![link] (https://karansomaiah.github.io/VisualizationForPuertoRico/)
+(https://karansomaiah.github.io/VisualizationForPuertoRico/)
